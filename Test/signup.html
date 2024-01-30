@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Style Sign Up</title>
+    <style>
+        /* Styles for the signup page */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .signup-button:hover {
+            background: #d1080e;
+        }
+
+        .login-link {
+            margin-top: 20px;
+            color: #b3b3b3;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <img src="netflix-logo.jpg" alt="Netflix Logo" class="logo">
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="signupPassword" name="password" required>
+            </div>
+            <button type="button" class="signup-button" onclick="signup()">Sign Up</button>
+        </form>
+        <a href="index.html" class="login-link">Already have an account? Login here</a>
+    </div>
+
+    <script>
+        function signup() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('signupPassword').value;
+
+            // Simulate a POST request to your server
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ fullName, email, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Signup successful:', data);
+                // You can redirect the user or show a success message here
+            })
+            .catch(error => {
+                console.error('Error during signup:', error);
+                // Handle errors appropriately
+            });
+        }
+    </script>
+
+</body>
+</html>

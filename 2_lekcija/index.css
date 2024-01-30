@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+header {
+    background-color: chocolate;
+    color: black;
+    font-weight: 700;
+    font-size: 10px;
+    font-style: italic;
+    font-family: "Roboto", sans-serif;
+}
+footer p {
+    padding: 10px 20px;
+    /*padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    padding-right: 10px; */
+    border: 5px double #ccc;
+    /*border-width: 5px;
+    border-style: solid;
+    border-color: #ccc; */
+    border-radius: 6px;
+    margin: 10px;
+    background-color: red;
+}
+
+.header-nav {
+    background-color: yellow;
+}
+
+section {
+    height: 400px;
+    width: 100vw;
+}
+
+#experience {
+    background-color: aqua;
+}
+
+#education {
+    background-color: blueviolet;
+}
+
+#contact {
+    background-color: bisque;
+}
+
+#experience div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

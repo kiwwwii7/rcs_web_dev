@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main section#first{
+    background-color: aquamarine;
+    width: 100vw;
+    height: 100vh;
+}
+
+main div.square {
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    margin: 0px 20px 0px 20px;
+    animation: move 2s linear infinite, rotate 2s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        top: 50%;
+        left: 0%;
+    }
+    50% {
+        top: 50%;
+        left: 100%;
+    }
+    100% {
+        top: 50%;
+        left: 0%;
+    }
+}
+
+/*@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(2000deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}*/
+
+

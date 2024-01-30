@@ -1,0 +1,17 @@
+@media screen and (max-width: 768px) {
+    section#about-me {
+        flex-direction: column;
+    }
+
+    section#about-me div {
+        width: 60%;
+        background-color: green;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section#about-me div {
+        width: 80%;
+        background-color: yellow;
+    }
+}

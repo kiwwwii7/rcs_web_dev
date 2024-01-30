@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body div.main {
+    background-color: red;
+    width: 100vw; /* aizņem 100% no ekrāna izmēra */
+    height: 100vh; /* aizņem 100% no ekrāna izmēra */
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+div.main div {
+    background-color: #000;
+    width: 30%;
+    height: 30%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+}
+
+p {
+    color: white;
+}
+
+p.first {
+    font-size: 2rem;
+}
+
+p.second {
+    font-size: 2.3rem;
+}
+
+p.third {
+    font-size: 2.6rem;
+}

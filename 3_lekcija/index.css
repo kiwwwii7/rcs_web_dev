@@ -1,0 +1,143 @@
+/* Normalize */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+li {
+    list-style: none;
+}
+
+li::before {
+    content: "<";
+}
+
+li::after {
+    content: ">";
+}
+
+body {
+    position: relative;
+}
+
+/*header design*/
+header {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    border-bottom: 2px solid black;
+    background: rgb(84,143,179);
+    background: linear-gradient(
+        90deg, 
+        rgba(84,143,179,1) 0%, 
+        rgba(65,65,128,1) 50%, 
+        rgba(189,130,46,1) 100%);
+    color: #ffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* y axis */
+    justify-content: space-between; /* x axis */
+    padding: 5px 10px;
+    z-index: 100;
+}
+
+header .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: rotate 2s linear;
+}
+
+header img {
+    width: 80px;
+}
+
+header nav ul {
+    display: flex;
+    gap: 10px;
+}
+
+/* Main block styles */
+
+/* Hero start */
+section#hero {
+    width: 100vw;
+    height: 100vh;
+    background: url("assets/galaxy.jpg");
+    position: relative;
+}
+
+section#hero p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffff;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    text-align: justify;
+    animation: fadeIn 2s linear infinite;
+}
+/* Hero end */
+
+/* About me start */
+section#about-me {
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+section#about-me div {
+    width: 30%;
+    height: 300px;
+    background-color: blue;
+    transform: scale(1);
+    transition: transform 0.4s cubic-bezier(.01,.98,.98,.01), background-color 1s ease-in-out;
+}
+
+section#about-me div:hover {
+    transform: scale(1.2);
+    background-color: yellow;
+}
+/* About me end */
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

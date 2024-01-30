@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Style Login</title>
+    <style>
+        /* Styles for the combined login and sign-up page */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .login-button {
+            background: #e50914;
+            color: #fff;
+            border: none;
+        }
+
+        .signup-button {
+            background: #e50914;
+            color: #fff;
+            border: none;
+        }
+
+        .button:hover {
+            background: #d1080e;
+        }
+
+        .login-link,
+        .signup-link {
+            margin-top: 20px;
+            color: #b3b3b3;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-link:hover,
+        .signup-link:hover {
+            color: #fff;
+        }
+
+        /* Hide the signup container by default */
+        .signup-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="loginContainer">
+        <img src="netflix-logo.png" alt="Netflix Logo" class="logo">
+        <form action="#" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="button login-button">Sign In</button>
+        </form>
+        <a href="#" class="login-link" onclick="toggleForm()">Sign up for an account</a>
+    </div>
+
+    <div class="container signup-container" id="signupContainer">
+        <img src="netflix-logo.jpg" alt="Netflix Logo" class="logo">
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="signupPassword" name="password" required>
+            </div>
+            <button type="button" class="button signup-button" onclick="signup()">Sign Up</button>
+        </form>
+        <a href="#" class="signup-link" onclick="toggleForm()">Already have an account? Login here</a> 
+    </div>
+
+    <script>
+        function toggleForm() {
+            const loginContainer = document.getElementById('loginContainer');
+            const signupContainer = document.getElementById('signupContainer'); 
+
+            // Toggle display between login and signup containers
+            if (loginContainer.style.display === 'none') {
+                loginContainer.style.display = 'block';
+                signupContainer.style.display = 'none';
+            } else {
+                loginContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+            }
+        }
+
+        function signup() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('signupPassword').value;
+
+            // Simulate a POST request to your server
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ fullName, email, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Signup successful:', data);
+                // You can redirect the user or show a success message here
+            })
+            .catch(error => {
+                console.error('Error during signup:', error);
+                // Handle errors appropriately
+            });
+        }
+    </script>
+
+</body>
+</html>
